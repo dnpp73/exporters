@@ -287,6 +287,10 @@ class FeaturesManager:
             "text-classification",
             coreml_config_cls="models.llama.LlamaCoreMLConfig",
         ),
+        "plamo": supported_features_mapping(
+            "text-generation",
+            coreml_config_cls="models.plamo.PlamoCoreMLConfig",
+        ),
         "m2m_100": supported_features_mapping(
             "feature-extraction",
             "text2text-generation",

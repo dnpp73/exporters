@@ -280,7 +280,7 @@ class FalconCoreMLConfig(CoreMLConfig):
                         raise ValueError(f"Unsupported op {node} with target dtype {np_dtype}")
             context.add(res)
 
-        # Workaround until https://github.com/apple/coremltools/pull/2046 is released 
+        # Workaround until https://github.com/apple/coremltools/pull/2046 is released
         def numpy_t(context, node):
             from coremltools.converters.mil import Builder as mb
 
@@ -470,7 +470,7 @@ class SqueezeBertCoreMLConfig(CoreMLConfig):
 
 class T5CoreMLConfig(CoreMLConfig):
     modality = "text"
-    
+
     @property
     def _input_descriptions(self) -> OrderedDict[str, InputDescription]:
         if self.task == "feature-extraction":
@@ -541,3 +541,6 @@ class YolosCoreMLConfig(CoreMLConfig):
     def atol_for_validation(self) -> float:
         # because of bilinear instead of bicubic, atol must be very large here
         return 10
+
+class PlamoCoreMLConfig(CoreMLConfig):
+    modality = "text"
